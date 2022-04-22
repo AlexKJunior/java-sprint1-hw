@@ -1,22 +1,20 @@
 import java.util.Scanner;
 
 public class StepTracker {
-    // Создаем переменную типа Scanner.
-    private final Scanner scanner;
-    // Заданная цель по количеству шагов.
+
     private int objectiveSteps = 10000;
-    // Двухмерный массив.
+
     private final int[][] monthToData = new int[12][30];
-    // Создаем объект класса Converter.
+
     private final Converter converter = new Converter();
-    // Объявляем переменную для количества дней в месяце.
+
     private final int daySum = monthToData[0].length;
-    // Объявляем конструктор StepTracker.
+
     public StepTracker(Scanner scanner){
-        this.scanner = scanner;
+
     }
     //Вычисление количества шагов за день.
-    public void kitStepDay(){
+    public void kitStepDay(Scanner scanner){
         int steps;
         int month;
         int day;
@@ -36,7 +34,7 @@ public class StepTracker {
     }
 
     // Считывание месяца который ввёл пользователь.
-    public int readMonth(){
+    public int readMonth(Scanner scanner){
         int statMonth;
         do {
             System.out.println("Введите месяц: ");
@@ -113,8 +111,8 @@ public class StepTracker {
     }
 
     // Вывод статистики.
-    public void  printStatResult() {
-        int statMonth = readMonth();
+    public void  printStatResult(Scanner scanner) {
+        int statMonth = readMonth(scanner);
         int fullMonthSteps = findStepCount(statMonth);
         printDayData(statMonth, fullMonthSteps);
         findMaxMonthSteps(statMonth);
@@ -123,7 +121,7 @@ public class StepTracker {
     }
 
     // Новая цель по количеству шагов.
-    public void kitStepsObjective(){
+    public void kitStepsObjective(Scanner scanner){
         do {
             System.out.println("Текущая цель по количеству шагов : " + objectiveSteps);
             System.out.println("Введите новое значение: ");
